@@ -18,9 +18,11 @@ function ExpenseForm({ onExpenseAdded }) {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
+    <form onSubmit={handleSubmit} className="space-y-4 p-4 sm:p-6 bg-white shadow-md rounded-lg max-w-md mx-auto">
       <div>
-        <label htmlFor="amount" className="block text-sm font-medium text-gray-700">Amount</label>
+        <label htmlFor="amount" className="block text-sm font-medium text-gray-700">
+          Amount
+        </label>
         <input
           type="number"
           id="amount"
@@ -31,9 +33,11 @@ function ExpenseForm({ onExpenseAdded }) {
           className="mt-2 p-3 w-full border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
         />
       </div>
-      
+
       <div>
-        <label htmlFor="category" className="block text-sm font-medium text-gray-700">Category</label>
+        <label htmlFor="category" className="block text-sm font-medium text-gray-700">
+          Category
+        </label>
         <input
           type="text"
           id="category"

@@ -18,11 +18,11 @@ function InventoryAlerts() {
       }
     };
     fetchInventory();
-  }, []);
+  }, [useMockData]);
 
   return (
-    <div className="p-6 bg-white shadow-lg rounded-lg">
-      <h2 className="text-2xl font-bold mb-4 text-gray-800">Inventory Alerts</h2>
+    <div className="p-4 sm:p-6 bg-white shadow-lg rounded-lg max-w-md mx-auto lg:max-w-full lg:mx-0">
+      <h2 className="text-xl sm:text-2xl font-bold mb-4 text-gray-800">Inventory Alerts</h2>
       <ul className="space-y-2">
         {inventory.length > 0 ? (
           inventory.map((item) => (
@@ -32,14 +32,17 @@ function InventoryAlerts() {
                 item.lowStock ? 'bg-red-100 text-red-600' : 'bg-gray-100 text-gray-700'
               }`}
             >
-              <span className="font-semibold">{item.name}</span>
-              <span>
-                {item.quantity} {item.lowStock && <span className="text-sm font-semibold">(Low Stock)</span>}
+              <span className="font-semibold text-sm sm:text-base">{item.name}</span>
+              <span className="text-xs sm:text-sm">
+                {item.quantity}{' '}
+                {item.lowStock && (
+                  <span className="text-xs sm:text-sm font-semibold">(Low Stock)</span>
+                )}
               </span>
             </li>
           ))
         ) : (
-          <p className="text-gray-500">No inventory data available.</p>
+          <p className="text-gray-500 text-center sm:text-left">No inventory data available.</p>
         )}
       </ul>
     </div>
