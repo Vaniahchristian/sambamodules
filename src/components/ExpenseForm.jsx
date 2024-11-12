@@ -8,8 +8,11 @@ function ExpenseForm({ onExpenseAdded }) {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/expenses', { amount, category });
-      onExpenseAdded(response.data);
+      const response = await axios.post('http://localhost:5000/api/expenses', { 
+        amount: parseFloat(amount) || 0, // Ensure amount is a number
+        category 
+      });
+      onExpenseAdded(response.data); // Add new expense to the list
       setAmount('');
       setCategory('');
     } catch (error) {
